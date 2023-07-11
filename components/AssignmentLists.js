@@ -7,9 +7,8 @@ export default {
             <h2 class="text-3xl mb-2">{{ title }}</h2>
 
 			<assignment-tags 
+			v-model="currentTag"
 			:initialTags="assignments.map(a=> a.tag)"
-			@updates="currentTag = $event"
-			:currentTag="currentTag"
 		>
 
 			</assignment-tags>
