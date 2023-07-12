@@ -3,8 +3,14 @@ import AssignmentTags from "./AssignmentTags.js";
 export default {
 	components: { Assignment, AssignmentTags },
 	template: `
-        <section v-show="assignments.length" class="mb-10">
-            <h2 class="text-3xl mb-2">{{ title }}</h2>
+        <section v-show="show && assignments.length" class="mb-10 bg-gray-700 p-4 border border-gray-600 rounded-lg">
+            <div class="flex justify-between items-center mb-6">
+				<h2 class="text-3xl mb-2">
+			{{ title }}
+			<span>({{ assignments.length }})</span>
+			</h2>
+			<button v-show="canToggle" @click="show = false" class="text-2xl">&times;</button>
+			</div>
 
 			<assignment-tags 
 			v-model="currentTag"
@@ -26,10 +32,12 @@ export default {
 	props: {
 		assignments: Array,
 		title: String,
+		canToggle: { type: Boolean, default: false },
 	},
 	data() {
 		return {
 			currentTag: "All",
+			show: true,
 		};
 	},
 	computed: {

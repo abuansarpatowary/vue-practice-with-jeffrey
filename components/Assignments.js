@@ -4,7 +4,7 @@ export default {
 	components: { AssignmentLists, AssignmentCreate },
 	template: `
 		<assignment-lists :assignments="filters.inProgress" title="In Progress" ></assignment-lists>
-		<assignment-lists :assignments="filters.completed" title="Completed" ></assignment-lists>
+		<assignment-lists :assignments="filters.completed" title="Completed" can-toggle ></assignment-lists>
 
 		<assignment-create @add="add"></assignment-create>
 		
